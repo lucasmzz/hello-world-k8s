@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-server
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+      - name: vue-app
+        image: hello-world-app:latest
+        imagePullPolicy: Never
+        env:
+        - name: ORDERS_SERVICE_URL
+          value: "http://orders:80"
+        ports:
+        - containerPort: 80

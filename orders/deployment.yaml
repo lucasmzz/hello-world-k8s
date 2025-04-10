@@ -13,11 +13,13 @@ spec:
         app: orders
     spec:
       containers:
-      - name: orders-service
-        image: hello-world-server:latest
-        imagePullPolicy: Never
-        env:
-        - name: DB_HOST
-          value: orders-db
-        - name: DB_PORT
-          value: "5432"
+        - name: orders-service
+          image: hello-world-server:latest
+          imagePullPolicy: Never
+          env:
+            - name: DB_HOST
+              value: orders-db
+            - name: DB_PORT
+              value: "5432"
+          ports:
+            - containerPort: 5453

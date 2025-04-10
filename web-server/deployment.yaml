@@ -13,11 +13,8 @@ spec:
         app: web-server
     spec:
       containers:
-      - name: vue-app
-        image: hello-world-app:latest
-        imagePullPolicy: Never
-        env:
-        - name: ORDERS_SERVICE_URL
-          value: "http://orders:80"
-        ports:
-        - containerPort: 80
+        - name: vue-app
+          image: hello-world-app:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
